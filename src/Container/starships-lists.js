@@ -39,27 +39,41 @@ const StarshipList = () => {
         name
         filmConnection {
           films {
+            id
             title
-            
+            releaseDate
+            director
+            producers
+            openingCrawl
+            created
+            }
+        
+    
           }
         
-        }
+        
         pilotConnection {
           pilots {
+            id
             name
-            filmConnection {
-              films {
-                title
-              }
+              birthYear
+              gender
+            species {
+              skinColors
+              hairColors
+              
+            }
+            mass
+            height
             }
           }
           
         }
       }
     }
-  }
+    
   `;
-  const uri = `http://localhost:56251/?query=${query}`;
+  const uri = `http://localhost:61119/?query=${query}`;
   useEffect(() => {
     axios.get(uri)
       .then(result => {

@@ -4,6 +4,7 @@ import '../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,18 +27,28 @@ const useStyles = makeStyles((theme) => ({
 
 const StarshipDetails = ({ location }) => {
 
-  const { films, pilots } = location.myCustomProps;
+  const { name, films, pilots } = location.myCustomProps;
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
+        <Grid container spacing={2} >
+          <h1>{name}</h1>
+        </Grid>
+      </Paper>
+      <Paper className={classes.paper}>
         <Grid container spacing={2} className="films">
-          <h1>Films</h1>
+          <h1>Related Films</h1>
           <div >
             {
               films.films.map((film, index) => (
                 <Grid container key={index}>
-                  <p  >{film.title}</p>
+                  <Link to={{
+                    pathname: `/movie-details/${film.id}`,
+                    myCustomProps: { film }
+                  }}>
+                    <p  >{film.title}</p>
+                  </Link>
                 </Grid>
               ))
             }
@@ -46,12 +57,18 @@ const StarshipDetails = ({ location }) => {
       </Paper>
       <Paper className={classes.paper}>
         <Grid container spacing={2} className="films">
-          <h1>Pilots</h1>
+          <h1>Related Pilots</h1>
           <div >
             {
               pilots.pilots.map((pilot, index) => (
                 <Grid container key={index}>
-                  <p >{pilot.title}</p>
+                  <Link to={{
+                    pathname: `/pilot-details/${pilot.id}`,
+                    myCustomProps: { pilot }
+                  }}>
+
+                    <p >{pilot.title}</p>
+                  </Link>
                 </Grid>
               ))
             }

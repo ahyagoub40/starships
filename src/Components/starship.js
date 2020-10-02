@@ -9,7 +9,7 @@ const Starship = ({ name, id, films, pilots }) => {
     <div>
       <Link to={{
         pathname: `/starship-details/${id}`,
-        myCustomProps: { films, pilots }
+        myCustomProps: { name, films, pilots }
       }}>
 
         <GridListTile >
