@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import '../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -29,7 +29,6 @@ const MovieDetails = ({ match }) => {
   const filmID = match.params.id;
   const desiredStarship = localStorage.getItem('desiredStarship');
   const films = arrayToObject(JSON.parse(desiredStarship).filmConnection.films);
-  console.log("allStarships", films);
   const desiredFilm = films[filmID];
   const classes = useStyles();
   return (
@@ -41,12 +40,12 @@ const MovieDetails = ({ match }) => {
           <div >
             <Grid container >
               <Grid item xs>
-                <p  >{desiredFilm.releaseDate}</p>
-                <p  >{desiredFilm.title}</p>
-                <p  >{desiredFilm.director}</p>
-                <p  >{desiredFilm.producers}</p>
-                <p  >{desiredFilm.openingCrawl}</p>
-                <p  >{desiredFilm.created}</p>
+                <Typography  >{desiredFilm.releaseDate}</Typography>
+                <Typography  >{desiredFilm.title}</Typography>
+                <Typography  >{desiredFilm.director}</Typography>
+                <Typography  >{desiredFilm.Typographyroducers}</Typography>
+                <Typography  >{desiredFilm.oTypographyeningCrawl}</Typography>
+                <Typography  >{desiredFilm.created}</Typography>
               </Grid>
             </Grid>
           </div>

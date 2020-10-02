@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import '../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -50,9 +50,8 @@ const StarshipDetails = ({ match }) => {
                 <Grid container key={index}>
                   <Link to={{
                     pathname: `/movie-details/${film.id}`,
-                    myCustomProps: { film }
                   }}>
-                    <p  >{film.title}</p>
+                    <Typography  >{film.title}</Typography>
                   </Link>
                 </Grid>
               ))
@@ -69,10 +68,9 @@ const StarshipDetails = ({ match }) => {
                 <Grid container key={index}>
                   <Link to={{
                     pathname: `/pilot-details/${pilot.id}`,
-                    myCustomProps: { pilot }
                   }}>
 
-                    <p >{pilot.title}</p>
+                    <Typography >{pilot.title}</Typography>
                   </Link>
                 </Grid>
               ))

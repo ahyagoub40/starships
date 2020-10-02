@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
-// import { Query } from 'react-apollo';
-// import gql from 'graphql-tag';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import { Paper } from '@material-ui/core';
 import Starship from '../Components/starship';
-// import { createApolloFetch } from 'apollo-fetch';
 import axios from 'axios';
 import useStickyState from '../local-storage';
 const useStyles = makeStyles((theme) => ({
@@ -74,11 +71,10 @@ const StarshipList = () => {
     }
     
   `;
-  const uri = `http://localhost:55794/?query=${query}`;
+  const uri = `https://starships-hyre.herokuapp.com/?query=${query}`;
   useEffect(() => {
     axios.get(uri)
       .then(result => {
-        console.log(result.data.data);
         setData(result.data.data);
         setLoading(false);
       })

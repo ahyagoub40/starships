@@ -6,16 +6,9 @@ import StarshipList from './Container/starships-lists';
 import StarshipDetails from './Container/starships-details';
 import PilotDetails from './Container/pilot-details';
 import MovieDetails from './Container/movie-details';
-// import ApolloClient from 'apollo-boost';
-// import { ApolloProvider } from 'react-apollo';
-
-// const client = new ApolloClient({
-// uri: "https://cors-anywhere.herokuapp.com/graphql.org/swapi-graphql/",
-// });
 
 function App() {
   return (
-    // <ApolloProvider client={client}>
     <div className="App">
       <BrowserRouter>
         <CustomAppBar />
@@ -27,7 +20,6 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
-    // </ApolloProvider>
   );
 }
 

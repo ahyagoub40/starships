@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import '../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -29,7 +29,6 @@ const PilotDetails = ({ match }) => {
   const pilotID = match.params.id;
   const desiredStarship = localStorage.getItem('desiredStarship');
   const pilots = arrayToObject(JSON.parse(desiredStarship).pilotConnection.pilots);
-  console.log("allStarships", pilots);
   const desiredPilot = pilots[pilotID];
   const classes = useStyles();
   return (
@@ -42,13 +41,13 @@ const PilotDetails = ({ match }) => {
 
             <Grid container>
               <Grid item xs>
-                <p  >{desiredPilot.birthYear}</p>
-                <p  >{desiredPilot.title}</p>
-                <p  >{desiredPilot.gender}</p>
-                <p  >{desiredPilot.species.skinColors}</p>
-                <p  >{desiredPilot.species.hairColors}</p>
-                <p  >{desiredPilot.mass}</p>
-                <p  >{desiredPilot.height}</p>
+                <Typography  >{desiredPilot.birthYear}</Typography>
+                <Typography  >{desiredPilot.title}</Typography>
+                <Typography  >{desiredPilot.gender}</Typography>
+                <Typography  >{desiredPilot.species.skinColors}</Typography>
+                <Typography  >{desiredPilot.species.hairColors}</Typography>
+                <Typography  >{desiredPilot.mass}</Typography>
+                <Typography  >{desiredPilot.height}</Typography>
               </Grid>
             </Grid>
           </div>
