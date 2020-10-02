@@ -8,6 +8,7 @@ import { Paper } from '@material-ui/core';
 import Starship from '../Components/starship';
 // import { createApolloFetch } from 'apollo-fetch';
 import axios from 'axios';
+import useStickyState from '../local-storage';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const StarshipList = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useStickyState({}, "allStarships")
   const [loading, setLoading] = useState(true);
   const query = `{
     allStarships{
@@ -73,7 +74,7 @@ const StarshipList = () => {
     }
     
   `;
-  const uri = `http://localhost:61119/?query=${query}`;
+  const uri = `http://localhost:55794/?query=${query}`;
   useEffect(() => {
     axios.get(uri)
       .then(result => {

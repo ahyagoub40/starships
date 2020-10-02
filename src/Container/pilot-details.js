@@ -4,7 +4,7 @@ import '../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-
+import arrayToObject from '../arrayToObject';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,28 +24,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PilotDetails = ({ location }) => {
+const PilotDetails = ({ match }) => {
 
-  const { pilot } = location.myCustomProps;
-  console.log("pilot", pilot);
+  const pilotID = match.params.id;
+  const desiredStarship = localStorage.getItem('desiredStarship');
+  const pilots = arrayToObject(JSON.parse(desiredStarship).pilotConnection.pilots);
+  console.log("allStarships", pilots);
+  const desiredPilot = pilots[pilotID];
   const classes = useStyles();
   return (
     <div className={classes.root}>
 
       <Paper className={classes.paper}>
         <Grid container spacing={2} className="films">
-          <h1>{pilot.name}</h1>
+          <h1>{desiredPilot.name}</h1>
           <div >
 
             <Grid container>
               <Grid item xs>
-                <p  >{pilot.birthYear}</p>
-                <p  >{pilot.title}</p>
-                <p  >{pilot.gender}</p>
-                <p  >{pilot.species.skinColors}</p>
-                <p  >{pilot.species.hairColors}</p>
-                <p  >{pilot.mass}</p>
-                <p  >{pilot.height}</p>
+                <p  >{desiredPilot.birthYear}</p>
+                <p  >{desiredPilot.title}</p>
+                <p  >{desiredPilot.gender}</p>
+                <p  >{desiredPilot.species.skinColors}</p>
+                <p  >{desiredPilot.species.hairColors}</p>
+                <p  >{desiredPilot.mass}</p>
+                <p  >{desiredPilot.height}</p>
               </Grid>
             </Grid>
           </div>
