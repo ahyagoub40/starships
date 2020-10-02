@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CustomAppBar from './Components/app-bar';
 import StarshipList from './Container/starships-lists';
+import StarshipDetails from './Container/starships-details';
 // import ApolloClient from 'apollo-boost';
 // import { ApolloProvider } from 'react-apollo';
 
@@ -16,7 +17,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <CustomAppBar />
-        <StarshipList />
+        <Switch>
+          <Route path="/" exact component={StarshipList} />
+          <Route path="/starship-details/:id" component={StarshipDetails} />
+        </Switch>
       </BrowserRouter>
     </div>
     // </ApolloProvider>

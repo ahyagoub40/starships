@@ -18,8 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: 1200,
+    maxWidth: 1400,
     background: "grey"
   },
   gridList: {
@@ -33,8 +32,34 @@ const useStyles = makeStyles((theme) => ({
 const StarshipList = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const query = `{allStarships{starships{name}}}`;
-  const uri = `http://localhost:57966/?query=${query}`;
+  const query = `{
+    allStarships{
+      starships {
+        id
+        name
+        filmConnection {
+          films {
+            title
+            
+          }
+        
+        }
+        pilotConnection {
+          pilots {
+            name
+            filmConnection {
+              films {
+                title
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
+  `;
+  const uri = `http://localhost:56251/?query=${query}`;
   useEffect(() => {
     axios.get(uri)
       .then(result => {
@@ -58,6 +83,9 @@ const StarshipList = () => {
                 <Starship
                   key={index}
                   name={starship.name}
+                  id={starship.id}
+                  films={starship.filmConnection}
+                  pilots={starship.pilotConnection}
                 />
               ))
 

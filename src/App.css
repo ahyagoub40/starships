@@ -12,3 +12,8 @@ html, body, #root {
 .NavBar {
   margin-bottom: 200px;
 }
+.films {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
