@@ -69,7 +69,7 @@ const StarshipDetails = ({ match }) => {
                     pathname: `/pilot-details/${pilot.id}`,
                   }}>
 
-                    <Typography >{pilot.title}</Typography>
+                    <Typography >{pilot.name}</Typography>
                   </Link>
                 </Grid>
               ))
