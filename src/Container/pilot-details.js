@@ -41,13 +41,12 @@ const PilotDetails = ({ match }) => {
 
             <Grid container>
               <Grid item xs>
-                <Typography  >{desiredPilot.birthYear}</Typography>
-                <Typography  >{desiredPilot.title}</Typography>
-                <Typography  >{desiredPilot.gender}</Typography>
-                <Typography  >{desiredPilot.species.skinColors}</Typography>
-                <Typography  >{desiredPilot.species.hairColors}</Typography>
-                <Typography  >{desiredPilot.mass}</Typography>
-                <Typography  >{desiredPilot.height}</Typography>
+                <Typography  >birthYear: {desiredPilot.birthYear}</Typography>
+                <Typography  >gender: {desiredPilot.gender}</Typography>
+                <Typography  >skinColors: {desiredPilot.species.skinColors}</Typography>
+                <Typography  >hairColors: {desiredPilot.species.hairColors}</Typography>
+                <Typography  >mass: {desiredPilot.mass}</Typography>
+                <Typography  >height: {desiredPilot.height}</Typography>
               </Grid>
             </Grid>
           </div>

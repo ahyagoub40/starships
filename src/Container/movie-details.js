@@ -40,12 +40,11 @@ const MovieDetails = ({ match }) => {
           <div >
             <Grid container >
               <Grid item xs>
-                <Typography  >{desiredFilm.releaseDate}</Typography>
-                <Typography  >{desiredFilm.title}</Typography>
-                <Typography  >{desiredFilm.director}</Typography>
-                <Typography  >{desiredFilm.Typographyroducers}</Typography>
-                <Typography  >{desiredFilm.oTypographyeningCrawl}</Typography>
-                <Typography  >{desiredFilm.created}</Typography>
+                <Typography  >releaseDate: {desiredFilm.releaseDate}</Typography>
+                <Typography  >director: {desiredFilm.director}</Typography>
+                <Typography  >producers: {desiredFilm.producers}</Typography>
+                <Typography  >openingCrawl: {desiredFilm.openingCrawl}</Typography>
+                <Typography  >created: {desiredFilm.created}</Typography>
               </Grid>
             </Grid>
           </div>
