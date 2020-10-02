@@ -30,7 +30,6 @@ const StarshipDetails = ({ match }) => {
   const starshipID = match.params.id;
   const allStarships = localStorage.getItem('allStarships');
   const starships = arrayToObject(JSON.parse(allStarships).allStarships.starships);
-  console.log("allStarships", starships);
   const desiredStarship = starships[starshipID];
   localStorage.setItem("desiredStarship", JSON.stringify(desiredStarship));
   const classes = useStyles();
