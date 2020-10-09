@@ -14,13 +14,14 @@ const StarshipPoster = ({ poster }) => {
     return trimmed;
   }
   return (
+    <div className="poster">
 
-    <img src={
-      (poster === 'N/A') ? "/images/notfound.png" : `/images/${trim(poster)}.png`
-    }
-      alt="starship poster"
-      width="300px" heigth="600px" margin="10px"
-    />
+      <img src={
+        (poster === 'N/A') ? "/images/notfound.png" : `/images/${trim(poster)}.png`
+      }
+        alt="starship poster"
+      />
+    </div>
   )
 
 };

@@ -3,10 +3,10 @@ import StarshipPoster from './starship-poster';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import { Link } from 'react-router-dom';
-
+import "../App.css";
 const Starship = ({ name, id, films, pilots }) => {
   return (
-    <div>
+    <div className="poster-grid">
       <Link to={{
         pathname: `/starship-details/${id}`,
       }}>

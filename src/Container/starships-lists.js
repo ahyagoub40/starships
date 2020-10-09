@@ -81,7 +81,7 @@ const StarshipList = () => {
       .catch(error => {
         console.log(error);
       });
-  }, [uri]);
+  }, [uri, setData]);
   const classes = useStyles();
   return (
     <div className={classes.root}>
